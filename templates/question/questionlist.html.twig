@@ -1,0 +1,18 @@
+{#{{dump(list)}}#}
+{% for i in list%}
+{{i.id}}
+{{i.idquiz}}
+{{i.quest}}
+{% for reponse in question.reponses %}
+        {{ reponse.id }}
+        {{ reponse.rep }}
+        {{ reponse.statut }}
+    {% endfor %}
+<br>
+<a href="{{path('app_delete',{'id':i.id})}}">delete</a>
+<br>
+<a href="{{path('app_ajout',{'id':i.id})}}">add</a>
+<br>
+<a href="{{path('app_modif',{'id':i.id})}}">modifier</a>
+
+{% endfor %}

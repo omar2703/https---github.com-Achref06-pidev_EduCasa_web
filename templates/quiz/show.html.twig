@@ -1,0 +1,213 @@
+{% block body %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Courses | Education</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('asset/template/img/favicon.ico') }}">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{ asset('asset/template/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/progressbar_barfiller.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/gijgo.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/animated-headline.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/template/css/style.css') }}">
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="asset/template/img/logo/loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+    <!-- Header Start -->
+    <header class="header-area header-transparent">
+        <div class="main-header">
+            <div class="header-bottom header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html"><img src="asset/template/img/logo/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div class="col-xl-10 col-lg-10">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main Menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">                                                                                          
+                                            <li class="active"><a href="index.html">Home</a></li>
+                                            <li><a href="courses.html">Courses</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="#">Blog</a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="blog_details.html">Blog Details</a></li>
+                                                    <li><a href="elements.html">Element</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <!-- Buttons -->
+                                            <li class="button-header margin-left"><a href="#" class="btn">Join</a></li>
+                                            <li class="button-header"><a href="login.html" class="btn btn3">Log in</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+    <!-- Main Content Start -->
+    <main>
+        <!-- Slider Area Start -->
+        <section class="slider-area slider-area2">
+            <div class="slider-active">
+                <div class="single-slider slider-height2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-11 col-md-12">
+                                <div class="hero__caption hero__caption2">
+                                    <h1 data-animation="bounceIn" data-delay="0.2s">About us</h1>
+                                    <!-- Breadcrumb Start -->
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="#">About</a></li> 
+                                        </ol>
+                                    </nav>
+                                    <!-- Breadcrumb End -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+        </section>
+        <!-- Slider Area End -->
+        <!-- Services Area Start -->
+        <div class="services-area services-area2 section-padding40">
+            <div class="container">
+                <div class="row justify-content-sm-center">
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-services mb-30">
+                            <!-- Contenu des services -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services Area End -->
+        <!-- Quiz Content Start -->
+        <div class="quiz-content">
+            <h1>{{ quiz.nom }}</h1>
+            <p>Nombre de questions : {{ quiz.nbQuest }}</p>
+            <p>Note : {{ quiz.note }}</p>
+            <h2>Questions :</h2>
+            <ul>
+                {% for question in questions %}
+                    <li>{{ question.quest }}</li>
+                    <ul>
+                        {% for reponse in reponses[question.id] %}
+                            <li>{{ reponse.rep }} {% if reponse.statut %}(Bonne réponse){% endif %}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- Quiz Content End -->
+        <!-- Team Area Start -->
+        <section class="team-area section-padding40 fix">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-8">
+                        <div class="section-tittle text-center mb-55">
+                            <h2>Community experts</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-active">
+                    <!-- Contenu de l'équipe -->
+                </div>
+            </div>
+        </section>
+        <!-- Team Area End -->
+    </main>
+    <!-- Main Content End -->
+    <!-- Footer Start -->
+    <footer class="footer-wrappper footer-bg">
+        <!-- Footer Content -->
+    </footer>
+    <!-- Footer End -->
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"><i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <script src="{{ asset('./asset/template/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{{ asset('./asset/template/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/popper.min.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/bootstrap.min.js') }}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{{ asset('./asset/template/js/jquery.slicknav.min.js') }}"></script>
+    <!-- Jquery Slick, Owl-Carousel Plugins -->
+    <script src="{{ asset('./asset/template/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/slick.min.js') }}"></script>
+    <!-- One Page, Animated-Headline -->
+    <script src="{{ asset('./asset/template/js/wow.min.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/animated.headline.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/jquery.magnific-popup.js') }}"></script>
+    <!-- Date Picker -->
+    <script src="{{ asset('./asset/template/js/gijgo.min.js') }}"></script>
+    <!-- Nice-select, sticky -->
+    <script src="{{ asset('./asset/template/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/jquery.sticky.js') }}"></script>
+    <!-- Progress -->
+    <script src="{{ asset('./asset/template/js/jquery.barfiller.js') }}"></script>
+    <!-- Counter, Waypoint, Hover Direction -->
+    <script src="{{ asset('./asset/template/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/hover-direction-snake.min.js') }}"></script>
+    <!-- Contact js -->
+    <script src="{{ asset('./asset/template/js/contact.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/jquery.form.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/mail-script.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/jquery.ajaxchimp.min.js') }}"></script>
+    <!-- Main, Plugins -->
+    <script src="{{ asset('./asset/template/js/plugins.js') }}"></script>
+    <script src="{{ asset('./asset/template/js/main.js') }}"></script>
+</body>
+</html>
+{% endblock %}
